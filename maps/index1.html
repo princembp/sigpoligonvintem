@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Polígon Vintem</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #2c3e50;
+      color: white;
+      padding: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      height: 40px;
+    }
+
+    main {
+      padding: 2rem;
+    }
+
+    .map-text {
+      margin-top: 2rem;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    #map iframe {
+      width: 100%;
+      height: 600px;
+      border: none;
+    }
+
+    footer {
+      background-color: #ecf0f1;
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+      color: #555;
+      margin-top: 2rem;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Polígon Vintem</h1>
+    <!-- Enllaç amb logotip del municipi -->
+    <img src="./images/Ayun_Faio.png" alt="Logotip del municipi" style="height: 60px;">
+  </header>
+
+  <main>
+    <div class="map-text">
+      <h2></h2>
+      <div class="container">
+        <div id="map">
+          <iframe frameborder="0" scrolling="no" src="./map2/index.html"></iframe>
+        </div>
+      </div>
+    </div>
+  </main>
+
+
+<style>
+  /* Altres estils aquí... */
+
+  #map {
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    overflow: hidden;
+    margin-top: 1rem;
+  }
+
+  #map iframe {
+    width: 100%;
+    height: 600px;
+    display: block;
+  }
+</style>
+
+
+
+
+  <footer>
+    &copy; 2025 Municipi de Faió. Tots els drets reservats.
+  </footer>
+
+</body>
+</html>
