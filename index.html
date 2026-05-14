@@ -3,100 +3,691 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Polígon Vintem</title>
+  <title>Polígon Vintem — Ajuntament de Faió</title>
+
+  <!-- Paleta: Històric / Territorial — Dorat i Crema
+       Motiu: municipi amb identitat patrimonial (Ebro), pàgina institucional pública,
+       objectiu informatiu, receptor heterogeni (veïns, funcionaris, propietaris). -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
+
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
+    /* ── Custom properties (3 rols: base · estructura · accent) ── */
+    :root {
+      --base:       #FFF8EC;
+      --base-mid:   #F0E6D3;
+      --base-card:  #FFFDF7;
+      --estructura: #1A1A1A;
+      --estructura-soft: #3A3A3A;
+      --accent:     #C8A96E;
+      --accent-dark:#A8864E;
+      --accent-pale:#F7EED8;
+      --white:      #FFFFFF;
+      --text:       #1A1A1A;
+      --text-soft:  #5A5250;
+      --border:     rgba(200,169,110,.25);
+      --border-mid: rgba(200,169,110,.45);
+
+      --font-display: 'Playfair Display', 'Bell MT', 'Palatino Linotype', Georgia, serif;
+      --font-body:    'Source Sans 3', 'Segoe UI', system-ui, sans-serif;
+
+      --shadow-sm:  0 1px 4px rgba(26,26,26,.06);
+      --shadow-md:  0 4px 20px rgba(26,26,26,.10);
+      --shadow-lg:  0 8px 40px rgba(26,26,26,.14);
+
+      --r-sm: 6px;
+      --r-md: 12px;
+      --r-lg: 16px;
     }
 
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--base);
+      color: var(--text);
+      line-height: 1.7;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ── TOPBAR institucional ── */
+    .topbar {
+      background: var(--estructura);
+      color: rgba(255,255,255,.55);
+      font-size: .72rem;
+      font-family: var(--font-body);
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      padding: .45rem clamp(1rem, 5vw, 3rem);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .topbar-left { display: flex; gap: 1.5rem; }
+    .topbar-item::before { content: '·'; margin-right: .5rem; color: var(--accent); }
+
+    /* ── HEADER ── */
     header {
-      background-color: #2c3e50;
-      color: white;
-      padding: 1rem;
+      background: var(--white);
+      border-bottom: 3px solid var(--accent);
+      position: sticky;
+      top: 0;
+      z-index: 200;
+      box-shadow: var(--shadow-md);
+    }
+
+    .header-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 1rem clamp(1rem, 5vw, 3rem);
       display: flex;
       align-items: center;
-      justify-content: space-between;
+      gap: 1.4rem;
     }
 
-    .logo {
-      height: 40px;
+    .header-logo {
+      height: 58px;
+      width: auto;
+      flex-shrink: 0;
     }
 
-    main {
-      padding: 2rem;
+    .header-sep {
+      width: 1px;
+      height: 44px;
+      background: var(--border-mid);
+      flex-shrink: 0;
     }
 
-    .map-text {
-      margin-top: 2rem;
+    .header-text { flex: 1; }
+
+    .header-text h1 {
+      font-family: var(--font-display);
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--estructura);
+      line-height: 1.2;
+      letter-spacing: -.01em;
     }
 
-    .container {
-      width: 100%;
-      max-width: 1000px;
+    .header-text p {
+      font-size: .76rem;
+      color: var(--text-soft);
+      font-weight: 400;
+      margin-top: .2rem;
+      letter-spacing: .05em;
+      text-transform: uppercase;
+    }
+
+    .header-pill {
+      background: var(--accent-pale);
+      color: var(--accent-dark);
+      border: 1px solid var(--border-mid);
+      font-size: .7rem;
+      font-weight: 600;
+      padding: .35rem .9rem;
+      border-radius: 20px;
+      letter-spacing: .07em;
+      text-transform: uppercase;
+      flex-shrink: 0;
+    }
+
+    /* ── INTRO BAND ── */
+    .intro-band {
+      background: var(--base-mid);
+      border-bottom: 1px solid var(--border-mid);
+      padding: 2.4rem clamp(1rem, 5vw, 3rem);
+    }
+
+    .intro-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .intro-content h2 {
+      font-family: var(--font-display);
+      font-size: clamp(1.5rem, 3vw, 2.2rem);
+      font-weight: 700;
+      color: var(--estructura);
+      line-height: 1.22;
+      letter-spacing: -.02em;
+      margin-bottom: .75rem;
+    }
+
+    .intro-content h2 em {
+      font-style: normal;
+      color: var(--accent-dark);
+    }
+
+    .intro-content p {
+      font-size: .95rem;
+      color: var(--text-soft);
+      max-width: 58ch;
+      line-height: 1.75;
+    }
+
+    .accent-line {
+      display: block;
+      width: 48px;
+      height: 3px;
+      background: var(--accent);
+      border-radius: 2px;
+      margin-bottom: 1rem;
+    }
+
+    .intro-stats {
+      display: flex;
+      flex-direction: column;
+      gap: .6rem;
+    }
+
+    .stat-item {
+      background: var(--white);
+      border: 1px solid var(--border-mid);
+      border-left: 3px solid var(--accent);
+      border-radius: var(--r-sm);
+      padding: .75rem 1.1rem;
+      min-width: 160px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .stat-num {
+      display: block;
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--accent-dark);
+      line-height: 1;
+    }
+
+    .stat-label {
+      display: block;
+      font-size: .72rem;
+      color: var(--text-soft);
+      margin-top: .2rem;
+      letter-spacing: .05em;
+      text-transform: uppercase;
+    }
+
+    /* ── HOW-TO STRIP ── */
+    .howto {
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+      padding: .85rem clamp(1rem, 5vw, 3rem);
+    }
+
+    .howto-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .howto-label {
+      font-size: .7rem;
+      font-weight: 600;
+      color: var(--accent-dark);
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      white-space: nowrap;
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+    }
+
+    .howto-label::after {
+      content: '';
+      display: block;
+      width: 20px;
+      height: 1px;
+      background: var(--border-mid);
+    }
+
+    .howto-steps {
+      display: flex;
+      gap: 1.8rem;
+      flex-wrap: wrap;
+    }
+
+    .howto-step {
+      display: flex;
+      align-items: center;
+      gap: .55rem;
+      font-size: .8rem;
+      color: var(--text-soft);
+    }
+
+    .howto-num {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: var(--accent);
+      color: var(--white);
+      font-size: .68rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    /* ── MAP SECTION ── */
+    .map-section {
+      padding: 2rem clamp(1rem, 5vw, 3rem);
+      flex: 1;
+    }
+
+    .map-section-inner {
+      max-width: 1200px;
       margin: 0 auto;
     }
 
-    #map iframe {
-      width: 100%;
-      height: 600px;
-      border: none;
+    .map-card {
+      background: var(--white);
+      border-radius: var(--r-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+      border: 1px solid var(--border);
     }
 
+    .map-card-header {
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+      padding: .9rem 1.3rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .map-live {
+      display: flex;
+      align-items: center;
+      gap: .75rem;
+    }
+
+    .live-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #22c55e;
+      animation: blink 2.2s ease-in-out infinite;
+      flex-shrink: 0;
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; box-shadow: 0 0 0 3px rgba(34,197,94,.18); }
+      50%       { opacity: .7; box-shadow: 0 0 0 6px rgba(34,197,94,.07); }
+    }
+
+    .map-live-text strong {
+      display: block;
+      font-size: .82rem;
+      font-weight: 600;
+      color: var(--estructura);
+      font-family: var(--font-display);
+    }
+
+    .map-live-text span {
+      font-size: .72rem;
+      color: var(--text-soft);
+    }
+
+    .layer-badges {
+      display: flex;
+      gap: .45rem;
+      flex-wrap: wrap;
+    }
+
+    .badge {
+      font-size: .66rem;
+      font-weight: 600;
+      padding: .2rem .65rem;
+      border-radius: 20px;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+    }
+
+    .badge-parcel   { background: #FEF3C7; color: #92400E; border: 1px solid #FCD34D; }
+    .badge-constr   { background: #FEE2E2; color: #991B1B; border: 1px solid #FCA5A5; }
+    .badge-viari    { background: #DCFCE7; color: #166534; border: 1px solid #86EFAC; }
+    .badge-cad      { background: var(--accent-pale); color: var(--accent-dark); border: 1px solid var(--border-mid); }
+
+    .map-frame {
+      position: relative;
+    }
+
+    .map-frame iframe {
+      width: 100%;
+      height: 640px;
+      border: none;
+      display: block;
+    }
+
+    /* ── INFO CARDS ── */
+    .cards-section {
+      padding: 0 clamp(1rem, 5vw, 3rem) 2.5rem;
+    }
+
+    .cards-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+    }
+
+    .info-card {
+      background: var(--base-card);
+      border: 1px solid var(--border);
+      border-radius: var(--r-md);
+      padding: 1.3rem 1.5rem;
+      box-shadow: var(--shadow-sm);
+      transition: box-shadow .2s ease, transform .2s ease;
+    }
+
+    .info-card:hover {
+      box-shadow: var(--shadow-md);
+      transform: translateY(-2px);
+    }
+
+    .card-icon-row {
+      display: flex;
+      align-items: center;
+      gap: .7rem;
+      margin-bottom: .85rem;
+    }
+
+    .card-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: var(--r-sm);
+      background: var(--accent-pale);
+      border: 1px solid var(--border-mid);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      flex-shrink: 0;
+    }
+
+    .card-tag {
+      font-size: .67rem;
+      font-weight: 600;
+      color: var(--accent-dark);
+      text-transform: uppercase;
+      letter-spacing: .09em;
+    }
+
+    .info-card h3 {
+      font-family: var(--font-display);
+      font-size: .95rem;
+      font-weight: 700;
+      color: var(--estructura);
+      margin-bottom: .45rem;
+      line-height: 1.3;
+    }
+
+    .info-card p {
+      font-size: .8rem;
+      color: var(--text-soft);
+      line-height: 1.65;
+    }
+
+    /* ── FOOTER ── */
     footer {
-      background-color: #ecf0f1;
-      text-align: center;
-      padding: 1rem;
-      font-size: 0.9rem;
-      color: #555;
-      margin-top: 2rem;
+      background: var(--estructura);
+      color: rgba(255,255,255,.55);
+      margin-top: auto;
+    }
+
+    .footer-accent-bar {
+      height: 3px;
+      background: linear-gradient(90deg, var(--accent) 0%, var(--accent-dark) 100%);
+    }
+
+    .footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 1.6rem clamp(1rem, 5vw, 3rem);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-brand {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .footer-logo {
+      height: 36px;
+      opacity: .6;
+      filter: grayscale(1) brightness(2);
+    }
+
+    .footer-brand-text strong {
+      display: block;
+      color: rgba(255,255,255,.88);
+      font-size: .85rem;
+      font-family: var(--font-display);
+      font-weight: 600;
+    }
+
+    .footer-brand-text span {
+      font-size: .72rem;
+      letter-spacing: .04em;
+    }
+
+    .footer-right {
+      text-align: right;
+      font-size: .72rem;
+      line-height: 1.8;
+    }
+
+    .footer-right a {
+      color: var(--accent);
+      text-decoration: none;
+      transition: color .15s;
+    }
+
+    .footer-right a:hover { color: #e8c888; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 960px) {
+      .intro-inner { grid-template-columns: 1fr; gap: 1.5rem; }
+      .intro-stats { flex-direction: row; }
+      .cards-inner { grid-template-columns: 1fr 1fr; }
+      .topbar { display: none; }
+    }
+
+    @media (max-width: 640px) {
+      .cards-inner { grid-template-columns: 1fr; }
+      .layer-badges { display: none; }
+      .header-pill { display: none; }
+      .map-frame iframe { height: 460px; }
+      .howto-steps { gap: .9rem; }
+      .footer-inner { flex-direction: column; align-items: flex-start; }
+      .footer-right { text-align: left; }
+      .intro-stats { flex-direction: column; }
     }
   </style>
 </head>
 <body>
 
+  <!-- TOPBAR -->
+  <div class="topbar" aria-hidden="true">
+    <div class="topbar-left">
+      <span class="topbar-item">Ajuntament de Faió</span>
+      <span class="topbar-item">Terres de l'Ebre · Aragó</span>
+    </div>
+    <span>Polígon Industrial Vintem</span>
+  </div>
+
+  <!-- HEADER -->
   <header>
-    <h1>Polígon Vintem</h1>
-    <!-- Enllaç amb logotip del municipi -->
-    <img src="./maps/images/Ayun_Faio.png" alt="Logotip del municipi" style="height: 60px;">
+    <div class="header-inner">
+      <img src="./maps/images/Ayun_Faio.png" alt="Escut de l'Ajuntament de Faió" class="header-logo">
+      <div class="header-sep"></div>
+      <div class="header-text">
+        <h1>Polígon Vintem</h1>
+        <p>Visor cartogràfic · Sistemes d'Informació Geogràfica</p>
+      </div>
+      <div class="header-pill">Visor SIG</div>
+    </div>
   </header>
 
-  <main>
-    <div class="map-text">
-      <h2></h2>
-      <div class="container">
-        <div id="map">
-          <iframe frameborder="0" scrolling="no" src="./maps/map2/index.html"></iframe>
+  <!-- INTRO BAND -->
+  <section class="intro-band" aria-label="Descripció del visor">
+    <div class="intro-inner">
+      <div class="intro-content">
+        <span class="accent-line" aria-hidden="true"></span>
+        <h2>Consulta de <em>parcel·les</em><br>i construccions del Polígon</h2>
+        <p>
+          Visor cartogràfic interactiu amb la informació cadastral i urbanística
+          del polígon industrial Vintem de Faió. Clica sobre qualsevol parcel·la
+          per consultar-ne les dades de referència, superfície i construccions associades.
+        </p>
+      </div>
+      <div class="intro-stats">
+        <div class="stat-item">
+          <span class="stat-num">5</span>
+          <span class="stat-label">Capes cartogràfiques</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-num">2025</span>
+          <span class="stat-label">Última actualització</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-num">SIG</span>
+          <span class="stat-label">Tecnologia Leaflet</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW-TO STRIP -->
+  <div class="howto" aria-label="Instruccions d'ús">
+    <div class="howto-inner">
+      <span class="howto-label">Com usar-lo</span>
+      <div class="howto-steps">
+        <div class="howto-step">
+          <div class="howto-num" aria-hidden="true">1</div>
+          <span>Navega fent zoom amb la roda del ratolí o els dits</span>
+        </div>
+        <div class="howto-step">
+          <div class="howto-num" aria-hidden="true">2</div>
+          <span>Clica una parcel·la per veure'n les dades</span>
+        </div>
+        <div class="howto-step">
+          <div class="howto-num" aria-hidden="true">3</div>
+          <span>Activa o desactiva capes al panell lateral dret</span>
+        </div>
+        <div class="howto-step">
+          <div class="howto-num" aria-hidden="true">4</div>
+          <span>Usa la icona de mesura per calcular distàncies</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MAP -->
+  <main class="map-section">
+    <div class="map-section-inner">
+      <div class="map-card">
+        <div class="map-card-header">
+          <div class="map-live">
+            <div class="live-dot" aria-hidden="true"></div>
+            <div class="map-live-text">
+              <strong>Mapa interactiu — Polígon Vintem</strong>
+              <span>Font: Cadastre oficial · Ajuntament de Faió</span>
+            </div>
+          </div>
+          <div class="layer-badges" aria-label="Capes disponibles">
+            <span class="badge badge-parcel">Parcel·les</span>
+            <span class="badge badge-constr">Construccions</span>
+            <span class="badge badge-viari">Viari</span>
+            <span class="badge badge-cad">CAD</span>
+          </div>
+        </div>
+        <div class="map-frame">
+          <iframe
+            src="./maps/map2/index.html"
+            title="Mapa interactiu del Polígon Industrial Vintem de Faió"
+            allowfullscreen
+            loading="lazy"
+          ></iframe>
         </div>
       </div>
     </div>
   </main>
 
+  <!-- INFO CARDS -->
+  <section class="cards-section" aria-label="Informació addicional">
+    <div class="cards-inner">
 
-<style>
-  /* Altres estils aquí... */
+      <div class="info-card">
+        <div class="card-icon-row">
+          <div class="card-icon" aria-hidden="true">📐</div>
+          <span class="card-tag">Dades cadastrals</span>
+        </div>
+        <h3>Parcel·les i referències</h3>
+        <p>Informació oficial de parcel·les, superfícies, perímetres i referències cadastrals del polígon industrial.</p>
+      </div>
 
-  #map {
-    border: 2px solid #ccc;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    overflow: hidden;
-    margin-top: 1rem;
-  }
+      <div class="info-card">
+        <div class="card-icon-row">
+          <div class="card-icon" aria-hidden="true">🏗️</div>
+          <span class="card-tag">Urbanisme</span>
+        </div>
+        <h3>Construccions i instal·lacions</h3>
+        <p>Capa de construccions existents, elements exteriors, viari i zones d'urbanització del polígon.</p>
+      </div>
 
-  #map iframe {
-    width: 100%;
-    height: 600px;
-    display: block;
-  }
-</style>
+      <div class="info-card">
+        <div class="card-icon-row">
+          <div class="card-icon" aria-hidden="true">✉️</div>
+          <span class="card-tag">Contacte</span>
+        </div>
+        <h3>Consultes i incidències</h3>
+        <p>Per a qualsevol consulta sobre dades cadastrals o errors en la informació, contacta amb l'Ajuntament de Faió.</p>
+      </div>
 
+    </div>
+  </section>
 
-
-
+  <!-- FOOTER -->
   <footer>
-    &copy; 2025 Municipi de Faió. Tots els drets reservats.
+    <div class="footer-accent-bar" aria-hidden="true"></div>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <img src="./maps/images/Ayun_Faio.png" alt="" class="footer-logo" aria-hidden="true">
+        <div class="footer-brand-text">
+          <strong>Ajuntament de Faió</strong>
+          <span>Polígon Industrial Vintem · Visor SIG</span>
+        </div>
+      </div>
+      <div class="footer-right">
+        &copy; 2025 Municipi de Faió. Tots els drets reservats.<br>
+        <a href="#">Avís legal</a> · <a href="#">Accessibilitat</a> · <a href="#">Contacte</a>
+      </div>
+    </div>
   </footer>
 
 </body>
