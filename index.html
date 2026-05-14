@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Polígon Vintem — Ajuntament de Faió</title>
+  <meta name="description" content="Visor cartogràfic interactiu de les parcel·les i construccions del Polígon Industrial Vintem de Faió. Consulta dades cadastrals oficials de la comarca del Baix Aragó-Casp.">
 
   <!-- Paleta: Històric / Territorial — Dorat i Crema
        Motiu: municipi amb identitat patrimonial (Ebro), pàgina institucional pública,
@@ -509,6 +510,83 @@
 
     .footer-right a:hover { color: #e8c888; }
 
+    /* ── SOCIAL ICONS ── */
+    .footer-social {
+      display: flex;
+      gap: .6rem;
+      align-items: center;
+    }
+
+    .social-link {
+      width: 34px;
+      height: 34px;
+      border-radius: 8px;
+      border: 1px solid rgba(200,169,110,.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(255,255,255,.5);
+      transition: background .2s, color .2s, border-color .2s;
+      flex-shrink: 0;
+    }
+
+    .social-link:hover {
+      background: rgba(200,169,110,.15);
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    .social-link svg {
+      width: 16px;
+      height: 16px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 1.8;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    /* ── BACK TO TOP ── */
+    .back-to-top {
+      position: fixed;
+      bottom: 1.8rem;
+      right: 1.8rem;
+      width: 42px;
+      height: 42px;
+      background: var(--accent);
+      color: var(--white);
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 16px rgba(168,134,78,.4);
+      opacity: 0;
+      transform: translateY(10px);
+      transition: opacity .25s ease, transform .25s ease, background .2s;
+      z-index: 300;
+      pointer-events: none;
+    }
+
+    .back-to-top.visible {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+
+    .back-to-top:hover { background: var(--accent-dark); }
+
+    .back-to-top svg {
+      width: 18px;
+      height: 18px;
+      stroke: white;
+      stroke-width: 2.5;
+      fill: none;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
     /* ── RESPONSIVE ── */
     @media (max-width: 960px) {
       .intro-inner { grid-template-columns: 1fr; gap: 1.5rem; }
@@ -535,7 +613,7 @@
   <div class="topbar" aria-hidden="true">
     <div class="topbar-left">
       <span class="topbar-item">Ajuntament de Faió</span>
-      <span class="topbar-item">Terres de l'Ebre · Aragó</span>
+      <span class="topbar-item">Baix Aragó-Casp · Saragossa</span>
     </div>
     <span>Polígon Industrial Vintem</span>
   </div>
@@ -547,7 +625,7 @@
       <div class="header-sep"></div>
       <div class="header-text">
         <h1>Polígon Vintem</h1>
-        <p>Visor cartogràfic · Sistemes d'Informació Geogràfica</p>
+        <p>Visor de parcel·les · Polígon Industrial</p>
       </div>
       <div class="header-pill">Visor SIG</div>
     </div>
@@ -572,7 +650,7 @@
         </div>
         <div class="stat-item">
           <span class="stat-num">2025</span>
-          <span class="stat-label">Última actualització</span>
+          <span class="stat-label">Darrera actualització</span>
         </div>
         <div class="stat-item">
           <span class="stat-num">SIG</span>
@@ -585,7 +663,7 @@
   <!-- HOW-TO STRIP -->
   <div class="howto" aria-label="Instruccions d'ús">
     <div class="howto-inner">
-      <span class="howto-label">Com usar-lo</span>
+      <span class="howto-label">Com utilitzar-lo</span>
       <div class="howto-steps">
         <div class="howto-step">
           <div class="howto-num" aria-hidden="true">1</div>
@@ -601,7 +679,7 @@
         </div>
         <div class="howto-step">
           <div class="howto-num" aria-hidden="true">4</div>
-          <span>Usa la icona de mesura per calcular distàncies</span>
+          <span>Utilitza la icona de mesura per calcular distàncies</span>
         </div>
       </div>
     </div>
@@ -683,12 +761,36 @@
           <span>Polígon Industrial Vintem · Visor SIG</span>
         </div>
       </div>
+      <div class="footer-social" aria-label="Xarxes socials">
+        <a href="#" class="social-link" aria-label="Facebook">
+          <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+        </a>
+        <a href="#" class="social-link" aria-label="Instagram">
+          <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".5" fill="currentColor" stroke="none"/></svg>
+        </a>
+        <a href="#" class="social-link" aria-label="X / Twitter">
+          <svg viewBox="0 0 24 24"><path d="M4 4l16 16M20 4L4 20" stroke-width="2"/></svg>
+        </a>
+      </div>
       <div class="footer-right">
         &copy; 2025 Municipi de Faió. Tots els drets reservats.<br>
         <a href="#">Avís legal</a> · <a href="#">Accessibilitat</a> · <a href="#">Contacte</a>
       </div>
     </div>
   </footer>
+
+  <!-- BACK TO TOP -->
+  <button class="back-to-top" aria-label="Tornar a dalt" id="backToTop">
+    <svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg>
+  </button>
+
+  <script>
+    const btn = document.getElementById('backToTop');
+    window.addEventListener('scroll', () => {
+      btn.classList.toggle('visible', window.scrollY > 280);
+    });
+    btn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+  </script>
 
 </body>
 </html>
