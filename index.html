@@ -139,6 +139,13 @@
       letter-spacing: .07em;
       text-transform: uppercase;
       flex-shrink: 0;
+      text-decoration: none;
+      transition: background .2s, border-color .2s;
+    }
+    .header-pill:hover {
+      background: var(--accent);
+      color: var(--white);
+      border-color: var(--accent);
     }
 
     /* ── INTRO BAND ── */
@@ -628,7 +635,7 @@
         <h1>Polígon Vintem</h1>
         <p>Visor de parcel·les · Polígon Industrial</p>
       </div>
-      <div class="header-pill">Visor SIG</div>
+      <a href="#mapa" class="header-pill">Visor SIG</a>
     </div>
   </header>
 
@@ -687,7 +694,7 @@
   </div>
 
   <!-- MAP -->
-  <main class="map-section">
+  <main class="map-section" id="mapa">
     <div class="map-section-inner">
       <div class="map-card">
         <div class="map-card-header">
