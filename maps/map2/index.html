@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="ca">
+<html lang="es">
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -591,11 +591,11 @@
         function pop_Parceles_5(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
-                        <th scope="row">Núm. parcel·la</th>\
+                        <th scope="row">Núm. parcela</th>\
                         <td>' + (feature.properties['Nombre_parcela'] !== null ? autolinker.link(String(feature.properties['Nombre_parcela']).replace(/'/g, '\'').toLocaleString()) : '—') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">Superfície (m²)</th>\
+                        <th scope="row">Superficie (m²)</th>\
                         <td>' + (feature.properties['area_m2'] !== null ? autolinker.link(String(feature.properties['area_m2']).replace(/'/g, '\'').toLocaleString()) : '—') + '</td>\
                     </tr>\
                     <tr>\
@@ -648,15 +648,15 @@
         bounds_group.addLayer(layer_Parceles_5);
         map.addLayer(layer_Parceles_5);
         var overlaysTree = [
-        {label: '<b>Parcel·les</b>',  selectAllCheckbox: true, children: [
-            {label: '<img src="legend/Parceles_5.png" /> Parcel·les', layer: layer_Parceles_5},]},
-        {label: '<b>Altres capes</b>', collapsed: true, selectAllCheckbox: true, children: [
-            {label: 'Construccions — CAD<br /><table><tr><td style="text-align: center;"><img src="legend/construccionscad_4_ACERAS0.png" /></td><td>Voreres</td></tr><tr><td style="text-align: center;"><img src="legend/construccionscad_4_ARBOLADO1.png" /></td><td>Arbrat</td></tr><tr><td style="text-align: center;"><img src="legend/construccionscad_4_CALLES2.png" /></td><td>Carrers</td></tr><tr><td style="text-align: center;"><img src="legend/construccionscad_4_CALLESPREVISION3.png" /></td><td>Carrers (previsió)</td></tr><tr><td style="text-align: center;"><img src="legend/construccionscad_4_PLANTA4.png" /></td><td>Planta</td></tr></table>', layer: layer_construccionscad_4},
-            {label: '<img src="legend/construccions_3.png" /> Construccions', layer: layer_construccions_3},
-            {label: '<img src="legend/construccions_externes_2.png" /> Construccions exteriors', layer: layer_construccions_externes_2},
-            {label: '<img src="legend/construccionsexteriorparcelari_1.png" /> Límit exterior parcel·lari', layer: layer_construccionsexteriorparcelari_1},]},
-        {label: '<b>Mapes de fons</b>',  selectAllCheckbox: true, children: [
-            {label: "Google Satèl·lit", layer: layer_GoogleSatelliteHybrid_0},]},]
+        {label: '<b>Parcelas</b>',  selectAllCheckbox: true, children: [
+            {label: '<img src="legend/Parceles_5.png" /> Parcelas', layer: layer_Parceles_5},]},
+        {label: '<b>Otras capas</b>', collapsed: true, selectAllCheckbox: true, children: [
+            {label: 'Construcciones — CAD<br /><table><tr><td style="text-align: center;"><img src="legend/construccionscad_4_ACERAS0.png" /></td><td>Aceras</td></tr><tr><td style="text-align: center;"><img src="legend/construccionscad_4_ARBOLADO1.png" /></td><td>Arbolado</td></tr><tr><td style="text-align: center;"><img src="legend/construccionscad_4_CALLES2.png" /></td><td>Calles</td></tr><tr><td style="text-align: center;"><img src="legend/construccionscad_4_CALLESPREVISION3.png" /></td><td>Calles (previsión)</td></tr><tr><td style="text-align: center;"><img src="legend/construccionscad_4_PLANTA4.png" /></td><td>Planta</td></tr></table>', layer: layer_construccionscad_4},
+            {label: '<img src="legend/construccions_3.png" /> Construcciones', layer: layer_construccions_3},
+            {label: '<img src="legend/construccions_externes_2.png" /> Construcciones exteriores', layer: layer_construccions_externes_2},
+            {label: '<img src="legend/construccionsexteriorparcelari_1.png" /> Límite exterior parcelario', layer: layer_construccionsexteriorparcelari_1},]},
+        {label: '<b>Mapas de fondo</b>',  selectAllCheckbox: true, children: [
+            {label: "Google Satélite", layer: layer_GoogleSatelliteHybrid_0},]},]
         var lay = L.control.layers.tree(null, overlaysTree,{
             //namedToggle: true,
             //selectorBack: false,

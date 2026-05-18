@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="ca">
+<html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Polígon Vintem — Ajuntament de Faió</title>
+  <title>Polígono Vintem — Ayuntamiento de Fayón</title>
   <link rel="icon" type="image/png" href="./maps/images/Ayun_Faio.png">
-  <meta name="description" content="Visor cartogràfic interactiu de les parcel·les i construccions del Polígon Industrial Vintem de Faió. Consulta dades cadastrals oficials de la comarca del Baix Aragó-Casp.">
+  <meta name="description" content="Visor cartográfico interactivo de las parcelas y construcciones del Polígono Industrial Vintem de Fayón. Consulta datos catastrales oficiales de la comarca del Bajo Aragón-Caspe.">
 
   <!-- Paleta: Històric / Territorial — Dorat i Crema
        Motiu: municipi amb identitat patrimonial (Ebro), pàgina institucional pública,
@@ -623,74 +623,74 @@
   <!-- TOPBAR -->
   <div class="topbar" aria-hidden="true">
     <div class="topbar-left">
-      <span class="topbar-item">Ajuntament de Faió</span>
-      <span class="topbar-item">Baix Aragó-Casp · Saragossa</span>
+      <span class="topbar-item">Ayuntamiento de Fayón</span>
+      <span class="topbar-item">Bajo Aragón-Caspe · Zaragoza</span>
     </div>
-    <span>Polígon Industrial Vintem</span>
+    <span>Polígono Industrial Vintem</span>
   </div>
 
   <!-- HEADER -->
   <header>
     <div class="header-inner">
-      <img src="./maps/images/Ayun_Faio.png" alt="Escut de l'Ajuntament de Faió" class="header-logo">
+      <img src="./maps/images/Ayun_Faio.png" alt="Escudo del Ayuntamiento de Fayón" class="header-logo">
       <div class="header-sep"></div>
       <div class="header-text">
-        <h1>Polígon Vintem</h1>
-        <p>Visor de parcel·les · Polígon Industrial</p>
+        <h1>Polígono Vintem</h1>
+        <p>Visor de parcelas · Polígono Industrial</p>
       </div>
       <a href="#mapa" class="header-pill">Visor SIG</a>
     </div>
   </header>
 
   <!-- INTRO BAND -->
-  <section class="intro-band" aria-label="Descripció del visor">
+  <section class="intro-band" aria-label="Descripción del visor">
     <div class="intro-inner">
       <div class="intro-content">
         <span class="accent-line" aria-hidden="true"></span>
-        <h2>Consulta de <em>parcel·les</em><br>i construccions del Polígon</h2>
+        <h2>Consulta de <em>parcelas</em><br>y construcciones del Polígono</h2>
         <p>
-          Visor cartogràfic interactiu amb la informació cadastral i urbanística
-          del polígon industrial Vintem de Faió. Clica sobre qualsevol parcel·la
-          per consultar-ne les dades de referència, superfície i construccions associades.
+          Visor cartográfico interactivo con la información catastral y urbanística
+          del polígono industrial Vintem de Fayón. Haz clic sobre cualquier parcela
+          para consultar sus datos de referencia, superficie y construcciones asociadas.
         </p>
       </div>
       <div class="intro-stats">
         <div class="stat-item">
           <span class="stat-num">5</span>
-          <span class="stat-label">Capes cartogràfiques</span>
+          <span class="stat-label">Capas cartográficas</span>
         </div>
         <div class="stat-item">
           <span class="stat-num">2025</span>
-          <span class="stat-label">Darrera actualització</span>
+          <span class="stat-label">Última actualización</span>
         </div>
         <div class="stat-item">
           <span class="stat-num">SIG</span>
-          <span class="stat-label">Tecnologia Leaflet</span>
+          <span class="stat-label">Tecnología Leaflet</span>
         </div>
       </div>
     </div>
   </section>
 
   <!-- HOW-TO STRIP -->
-  <div class="howto" aria-label="Instruccions d'ús">
+  <div class="howto" aria-label="Instrucciones de uso">
     <div class="howto-inner">
-      <span class="howto-label">Com utilitzar-lo</span>
+      <span class="howto-label">Cómo utilizarlo</span>
       <div class="howto-steps">
         <div class="howto-step">
           <div class="howto-num" aria-hidden="true">1</div>
-          <span>Navega fent zoom amb la roda del ratolí o els dits</span>
+          <span>Navega haciendo zoom con la rueda del ratón o los dedos</span>
         </div>
         <div class="howto-step">
           <div class="howto-num" aria-hidden="true">2</div>
-          <span>Clica una parcel·la per veure'n les dades</span>
+          <span>Haz clic en una parcela para ver sus datos</span>
         </div>
         <div class="howto-step">
           <div class="howto-num" aria-hidden="true">3</div>
-          <span>Activa o desactiva capes al panell lateral dret</span>
+          <span>Activa o desactiva capas en el panel lateral derecho</span>
         </div>
         <div class="howto-step">
           <div class="howto-num" aria-hidden="true">4</div>
-          <span>Utilitza la icona de mesura per calcular distàncies</span>
+          <span>Usa el icono de medición para calcular distancias</span>
         </div>
       </div>
     </div>
@@ -704,21 +704,21 @@
           <div class="map-live">
             <div class="live-dot" aria-hidden="true"></div>
             <div class="map-live-text">
-              <strong>Mapa interactiu — Polígon Vintem</strong>
-              <span>Font: Cadastre oficial · Ajuntament de Faió</span>
+              <strong>Mapa interactivo — Polígono Vintem</strong>
+              <span>Fuente: Catastro oficial · Ayuntamiento de Fayón</span>
             </div>
           </div>
-          <div class="layer-badges" aria-label="Capes disponibles">
-            <span class="badge badge-parcel">Parcel·les</span>
-            <span class="badge badge-constr">Construccions</span>
-            <span class="badge badge-viari">Viari</span>
+          <div class="layer-badges" aria-label="Capas disponibles">
+            <span class="badge badge-parcel">Parcelas</span>
+            <span class="badge badge-constr">Construcciones</span>
+            <span class="badge badge-viari">Viario</span>
             <span class="badge badge-cad">CAD</span>
           </div>
         </div>
         <div class="map-frame">
           <iframe
             src="./maps/map2/index.html"
-            title="Mapa interactiu del Polígon Industrial Vintem de Faió"
+            title="Mapa interactivo del Polígono Industrial Vintem de Fayón"
             allowfullscreen
             loading="lazy"
           ></iframe>
@@ -728,34 +728,34 @@
   </main>
 
   <!-- INFO CARDS -->
-  <section class="cards-section" aria-label="Informació addicional">
+  <section class="cards-section" aria-label="Información adicional">
     <div class="cards-inner">
 
       <div class="info-card">
         <div class="card-icon-row">
           <div class="card-icon" aria-hidden="true">📐</div>
-          <span class="card-tag">Dades cadastrals</span>
+          <span class="card-tag">Datos catastrales</span>
         </div>
-        <h3>Parcel·les i referències</h3>
-        <p>Informació oficial de parcel·les, superfícies, perímetres i referències cadastrals del polígon industrial.</p>
+        <h3>Parcelas y referencias</h3>
+        <p>Información oficial de parcelas, superficies, perímetros y referencias catastrales del polígono industrial.</p>
       </div>
 
       <div class="info-card">
         <div class="card-icon-row">
           <div class="card-icon" aria-hidden="true">🏗️</div>
-          <span class="card-tag">Urbanisme</span>
+          <span class="card-tag">Urbanismo</span>
         </div>
-        <h3>Construccions i instal·lacions</h3>
-        <p>Capa de construccions existents, elements exteriors, viari i zones d'urbanització del polígon.</p>
+        <h3>Construcciones e instalaciones</h3>
+        <p>Capa de construcciones existentes, elementos exteriores, viario y zonas de urbanización del polígono.</p>
       </div>
 
       <div class="info-card">
         <div class="card-icon-row">
           <div class="card-icon" aria-hidden="true">✉️</div>
-          <span class="card-tag">Contacte</span>
+          <span class="card-tag">Contacto</span>
         </div>
-        <h3>Consultes i incidències</h3>
-        <p>Per a qualsevol consulta sobre dades cadastrals o errors en la informació, contacta amb l'Ajuntament de Faió.</p>
+        <h3>Consultas e incidencias</h3>
+        <p>Para cualquier consulta sobre datos catastrales o errores en la información, contacta con el Ayuntamiento de Fayón.</p>
       </div>
 
     </div>
@@ -768,11 +768,11 @@
       <div class="footer-brand">
         <img src="./maps/images/Ayun_Faio.png" alt="" class="footer-logo" aria-hidden="true">
         <div class="footer-brand-text">
-          <strong>Ajuntament de Faió</strong>
-          <span>Polígon Industrial Vintem · Visor SIG</span>
+          <strong>Ayuntamiento de Fayón</strong>
+          <span>Polígono Industrial Vintem · Visor SIG</span>
         </div>
       </div>
-      <div class="footer-social" aria-label="Xarxes socials">
+      <div class="footer-social" aria-label="Redes sociales">
         <a href="#" class="social-link" aria-label="Facebook">
           <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
         </a>
@@ -784,14 +784,14 @@
         </a>
       </div>
       <div class="footer-right">
-        &copy; 2025 Municipi de Faió. Tots els drets reservats.<br>
-        <a href="#">Avís legal</a> · <a href="#">Accessibilitat</a> · <a href="#">Contacte</a>
+        &copy; 2025 Municipio de Fayón. Todos los derechos reservados.<br>
+        <a href="#">Aviso legal</a> · <a href="#">Accesibilidad</a> · <a href="#">Contacto</a>
       </div>
     </div>
   </footer>
 
   <!-- BACK TO TOP -->
-  <button class="back-to-top" aria-label="Tornar a dalt" id="backToTop">
+  <button class="back-to-top" aria-label="Volver arriba" id="backToTop">
     <svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg>
   </button>
 
