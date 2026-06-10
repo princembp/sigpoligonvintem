@@ -20,7 +20,7 @@
             margin: 0;
         }
 
-        /* ── Paleta institucional Polígon Bugarrech ── */
+        /* â”€â”€ Paleta institucional Polígon Bugarrech â”€â”€ */
         :root {
             --accent:      #C8A96E;
             --accent-dark: #A8864E;
@@ -76,6 +76,20 @@
             margin-bottom: 2px;
         }
         .leaflet-popup-tip { background: white; }
+
+        /* Etiquetas número parcela */
+        .css_Parceles_11 {
+            background: rgba(26,26,26,0.82) !important;
+            border: none !important;
+            border-radius: 4px !important;
+            box-shadow: 0 1px 5px rgba(0,0,0,0.35) !important;
+            color: #FFFFFF !important;
+            font-size: 9px !important;
+            font-weight: 400 !important;
+            padding: 2px 5px !important;
+            letter-spacing: 0.03em !important;
+        }
+        .css_Parceles_11::before { display: none !important; }
         .leaflet-popup-close-button {
             color: var(--text-soft) !important;
             font-size: 18px !important;
@@ -165,6 +179,7 @@
     <body>
         <div id="map">
         </div>
+        <script src="https://unpkg.com/@turf/turf@6/turf.min.js"></script>
         <script src="js/qgis2web_expressions.js"></script>
         <script src="js/leaflet.js"></script>
         <script src="js/L.Control.Layers.Tree.min.js"></script>
@@ -333,11 +348,11 @@
             return {
                 pane: 'pane_construccionsexteriorparcelari_1',
                 opacity: 1,
-                color: 'rgba(35,35,35,1.0)',
+                color: 'rgba(80,80,80,0.45)',
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
-                weight: 1.0, 
+                weight: 0.8,
                 fillOpacity: 0,
                 interactive: false,
             }
@@ -412,11 +427,11 @@
             return {
                 pane: 'pane_construccions_externes_2',
                 opacity: 1,
-                color: 'rgba(35,35,35,1.0)',
+                color: 'rgba(80,80,80,0.45)',
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
-                weight: 1.0, 
+                weight: 0.8,
                 fillOpacity: 0,
                 interactive: false,
             }
@@ -491,11 +506,11 @@
             return {
                 pane: 'pane_construccions_3',
                 opacity: 1,
-                color: 'rgba(35,35,35,1.0)',
+                color: 'rgba(80,80,80,0.45)',
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
-                weight: 1.0, 
+                weight: 0.8,
                 fillOpacity: 0,
                 interactive: false,
             }
@@ -551,11 +566,11 @@
                     return {
                 pane: 'pane_construccionscad_4',
                 opacity: 1,
-                color: 'rgba(0,0,0,1.0)',
+                color: 'rgba(80,80,80,0.45)',
                 dashArray: '',
                 lineCap: 'square',
                 lineJoin: 'bevel',
-                weight: 1.0,
+                weight: 0.8,
                 fillOpacity: 0,
                 interactive: false,
             }
@@ -564,11 +579,11 @@
                     return {
                 pane: 'pane_construccionscad_4',
                 opacity: 1,
-                color: 'rgba(8,175,0,1.0)',
+                color: 'rgba(8,140,0,0.6)',
                 dashArray: '',
                 lineCap: 'square',
                 lineJoin: 'bevel',
-                weight: 1.0,
+                weight: 0.8,
                 fillOpacity: 0,
                 interactive: false,
             }
@@ -577,11 +592,11 @@
                     return {
                 pane: 'pane_construccionscad_4',
                 opacity: 1,
-                color: 'rgba(0,0,0,1.0)',
+                color: 'rgba(80,80,80,0.45)',
                 dashArray: '',
                 lineCap: 'square',
                 lineJoin: 'bevel',
-                weight: 1.0,
+                weight: 0.8,
                 fillOpacity: 0,
                 interactive: false,
             }
@@ -590,11 +605,11 @@
                     return {
                 pane: 'pane_construccionscad_4',
                 opacity: 1,
-                color: 'rgba(0,0,0,1.0)',
+                color: 'rgba(80,80,80,0.45)',
                 dashArray: '4.0,2.0',
                 lineCap: 'square',
                 lineJoin: 'bevel',
-                weight: 1.0,
+                weight: 0.8,
                 fillOpacity: 0,
                 interactive: false,
             }
@@ -603,11 +618,11 @@
                     return {
                 pane: 'pane_construccionscad_4',
                 opacity: 1,
-                color: 'rgba(0,0,0,1.0)',
+                color: 'rgba(80,80,80,0.45)',
                 dashArray: '',
                 lineCap: 'square',
                 lineJoin: 'bevel',
-                weight: 1.0,
+                weight: 0.8,
                 fillOpacity: 0,
                 interactive: false,
             }
@@ -629,84 +644,30 @@
         bounds_group.addLayer(layer_construccionscad_4);
         map.addLayer(layer_construccionscad_4);
         function pop_zccc_poligon_simple_5(feature, layer) {
-            var popupContent = '<table>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['fid'] !== null ? autolinker.link(String(feature.properties['fid']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['handle'] !== null ? autolinker.link(String(feature.properties['handle']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['block'] !== null ? autolinker.link(String(feature.properties['block']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['etype'] !== null ? autolinker.link(String(feature.properties['etype']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['space'] !== null ? autolinker.link(String(feature.properties['space']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['layer'] !== null ? autolinker.link(String(feature.properties['layer']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['olinetype'] !== null ? autolinker.link(String(feature.properties['olinetype']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['linetype'] !== null ? autolinker.link(String(feature.properties['linetype']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['color'] !== null ? autolinker.link(String(feature.properties['color']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['ocolor'] !== null ? autolinker.link(String(feature.properties['ocolor']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['color24'] !== null ? autolinker.link(String(feature.properties['color24']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['transparency'] !== null ? autolinker.link(String(feature.properties['transparency']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['lweight'] !== null ? autolinker.link(String(feature.properties['lweight']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['linewidth'] !== null ? autolinker.link(String(feature.properties['linewidth']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['ltscale'] !== null ? autolinker.link(String(feature.properties['ltscale']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['visible'] !== null ? autolinker.link(String(feature.properties['visible']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['width'] !== null ? autolinker.link(String(feature.properties['width']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['thickness'] !== null ? autolinker.link(String(feature.properties['thickness']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['ext'] !== null ? autolinker.link(String(feature.properties['ext']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                </table>';
-            var content = removeEmptyRowsFromPopupContent(popupContent, feature);
-			layer.on('popupopen', function(e) {
-				addClassToPopupIfMedia(content, e.popup);
-			});
-			layer.bindPopup(content, { maxHeight: 400 });
+            var ha = (turf.area(feature) / 10000).toFixed(2);
+            var popupContent = '<div style="padding:10px 14px;">' +
+                '<div style="font-size:10px;text-transform:uppercase;letter-spacing:.06em;color:#A8864E;font-weight:600;margin-bottom:4px;">Clasificación urbanística</div>' +
+                '<div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;">' +
+                '<span style="display:inline-block;width:14px;height:14px;min-width:14px;background:rgba(139,69,19,0.75);border:2px solid rgba(100,50,10,1.0);border-radius:2px;"></span>' +
+                '<span style="font-size:14px;font-weight:400;color:#1A1A1A;">Zona &ldquo;estación de biomasa&rdquo;</span>' +
+                '</div>' +
+                '<div style="font-size:12px;color:#5A5250;"><b>Superficie:</b> ' + ha + ' ha</div>' +
+                '</div>';
+            layer.bindPopup(popupContent, { maxHeight: 400 });
         }
 
         function style_zccc_poligon_simple_5_0() {
             return {
                 pane: 'pane_zccc_poligon_simple_5',
                 opacity: 1,
-                color: 'rgba(35,35,35,1.0)',
+                color: 'rgba(100,50,10,1.0)',
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
-                weight: 1.0, 
+                weight: 1.5,
                 fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(243,166,178,1.0)',
+                fillOpacity: 0.75,
+                fillColor: 'rgba(139,69,19,0.75)',
                 interactive: true,
             }
         }
@@ -725,84 +686,30 @@
         bounds_group.addLayer(layer_zccc_poligon_simple_5);
         map.addLayer(layer_zccc_poligon_simple_5);
         function pop_zaparcaments_poligon_simple_6(feature, layer) {
-            var popupContent = '<table>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['fid'] !== null ? autolinker.link(String(feature.properties['fid']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['handle'] !== null ? autolinker.link(String(feature.properties['handle']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['block'] !== null ? autolinker.link(String(feature.properties['block']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['etype'] !== null ? autolinker.link(String(feature.properties['etype']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['space'] !== null ? autolinker.link(String(feature.properties['space']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['layer'] !== null ? autolinker.link(String(feature.properties['layer']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['olinetype'] !== null ? autolinker.link(String(feature.properties['olinetype']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['linetype'] !== null ? autolinker.link(String(feature.properties['linetype']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['color'] !== null ? autolinker.link(String(feature.properties['color']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['ocolor'] !== null ? autolinker.link(String(feature.properties['ocolor']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['color24'] !== null ? autolinker.link(String(feature.properties['color24']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['transparency'] !== null ? autolinker.link(String(feature.properties['transparency']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['lweight'] !== null ? autolinker.link(String(feature.properties['lweight']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['linewidth'] !== null ? autolinker.link(String(feature.properties['linewidth']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['ltscale'] !== null ? autolinker.link(String(feature.properties['ltscale']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['visible'] !== null ? autolinker.link(String(feature.properties['visible']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['width'] !== null ? autolinker.link(String(feature.properties['width']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['thickness'] !== null ? autolinker.link(String(feature.properties['thickness']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['ext'] !== null ? autolinker.link(String(feature.properties['ext']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                </table>';
-            var content = removeEmptyRowsFromPopupContent(popupContent, feature);
-			layer.on('popupopen', function(e) {
-				addClassToPopupIfMedia(content, e.popup);
-			});
-			layer.bindPopup(content, { maxHeight: 400 });
+            var ha = (turf.area(feature) / 10000).toFixed(2);
+            var popupContent = '<div style="padding:10px 14px;">' +
+                '<div style="font-size:10px;text-transform:uppercase;letter-spacing:.06em;color:#A8864E;font-weight:600;margin-bottom:4px;">Clasificación urbanística</div>' +
+                '<div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;">' +
+                '<span style="display:inline-block;width:14px;height:14px;min-width:14px;background:rgba(255,255,0,0.75);border:2px solid rgba(180,180,0,1.0);border-radius:2px;"></span>' +
+                '<span style="font-size:14px;font-weight:400;color:#1A1A1A;">Aparcamientos</span>' +
+                '</div>' +
+                '<div style="font-size:12px;color:#5A5250;"><b>Superficie:</b> ' + ha + ' ha</div>' +
+                '</div>';
+            layer.bindPopup(popupContent, { maxHeight: 400 });
         }
 
         function style_zaparcaments_poligon_simple_6_0() {
             return {
                 pane: 'pane_zaparcaments_poligon_simple_6',
                 opacity: 1,
-                color: 'rgba(35,35,35,1.0)',
+                color: 'rgba(180,180,0,1.0)',
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
-                weight: 1.0, 
+                weight: 1.5,
                 fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(133,182,111,1.0)',
+                fillOpacity: 0.75,
+                fillColor: 'rgba(255,255,0,0.75)',
                 interactive: true,
             }
         }
@@ -821,84 +728,30 @@
         bounds_group.addLayer(layer_zaparcaments_poligon_simple_6);
         map.addLayer(layer_zaparcaments_poligon_simple_6);
         function pop_zequipaments_poligon_simple_7(feature, layer) {
-            var popupContent = '<table>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['fid'] !== null ? autolinker.link(String(feature.properties['fid']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['handle'] !== null ? autolinker.link(String(feature.properties['handle']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['block'] !== null ? autolinker.link(String(feature.properties['block']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['etype'] !== null ? autolinker.link(String(feature.properties['etype']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['space'] !== null ? autolinker.link(String(feature.properties['space']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['layer'] !== null ? autolinker.link(String(feature.properties['layer']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['olinetype'] !== null ? autolinker.link(String(feature.properties['olinetype']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['linetype'] !== null ? autolinker.link(String(feature.properties['linetype']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['color'] !== null ? autolinker.link(String(feature.properties['color']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['ocolor'] !== null ? autolinker.link(String(feature.properties['ocolor']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['color24'] !== null ? autolinker.link(String(feature.properties['color24']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['transparency'] !== null ? autolinker.link(String(feature.properties['transparency']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['lweight'] !== null ? autolinker.link(String(feature.properties['lweight']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['linewidth'] !== null ? autolinker.link(String(feature.properties['linewidth']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['ltscale'] !== null ? autolinker.link(String(feature.properties['ltscale']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['visible'] !== null ? autolinker.link(String(feature.properties['visible']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['width'] !== null ? autolinker.link(String(feature.properties['width']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['thickness'] !== null ? autolinker.link(String(feature.properties['thickness']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['ext'] !== null ? autolinker.link(String(feature.properties['ext']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                </table>';
-            var content = removeEmptyRowsFromPopupContent(popupContent, feature);
-			layer.on('popupopen', function(e) {
-				addClassToPopupIfMedia(content, e.popup);
-			});
-			layer.bindPopup(content, { maxHeight: 400 });
+            var ha = (turf.area(feature) / 10000).toFixed(2);
+            var popupContent = '<div style="padding:10px 14px;">' +
+                '<div style="font-size:10px;text-transform:uppercase;letter-spacing:.06em;color:#A8864E;font-weight:600;margin-bottom:4px;">Clasificación urbanística</div>' +
+                '<div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;">' +
+                '<span style="display:inline-block;width:14px;height:14px;min-width:14px;background:rgba(100,149,237,0.75);border:2px solid rgba(60,100,190,1.0);border-radius:2px;"></span>' +
+                '<span style="font-size:14px;font-weight:400;color:#1A1A1A;">Equipamientos</span>' +
+                '</div>' +
+                '<div style="font-size:12px;color:#5A5250;"><b>Superficie:</b> ' + ha + ' ha</div>' +
+                '</div>';
+            layer.bindPopup(popupContent, { maxHeight: 400 });
         }
 
         function style_zequipaments_poligon_simple_7_0() {
             return {
                 pane: 'pane_zequipaments_poligon_simple_7',
                 opacity: 1,
-                color: 'rgba(35,35,35,1.0)',
+                color: 'rgba(60,100,190,1.0)',
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
-                weight: 1.0, 
+                weight: 1.5,
                 fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(225,89,137,1.0)',
+                fillOpacity: 0.75,
+                fillColor: 'rgba(100,149,237,0.75)',
                 interactive: true,
             }
         }
@@ -917,84 +770,30 @@
         bounds_group.addLayer(layer_zequipaments_poligon_simple_7);
         map.addLayer(layer_zequipaments_poligon_simple_7);
         function pop_zindustrial_poligon_simple_8(feature, layer) {
-            var popupContent = '<table>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['fid'] !== null ? autolinker.link(String(feature.properties['fid']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['handle'] !== null ? autolinker.link(String(feature.properties['handle']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['block'] !== null ? autolinker.link(String(feature.properties['block']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['etype'] !== null ? autolinker.link(String(feature.properties['etype']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['space'] !== null ? autolinker.link(String(feature.properties['space']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['layer'] !== null ? autolinker.link(String(feature.properties['layer']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['olinetype'] !== null ? autolinker.link(String(feature.properties['olinetype']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['linetype'] !== null ? autolinker.link(String(feature.properties['linetype']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['color'] !== null ? autolinker.link(String(feature.properties['color']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['ocolor'] !== null ? autolinker.link(String(feature.properties['ocolor']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['color24'] !== null ? autolinker.link(String(feature.properties['color24']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['transparency'] !== null ? autolinker.link(String(feature.properties['transparency']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['lweight'] !== null ? autolinker.link(String(feature.properties['lweight']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['linewidth'] !== null ? autolinker.link(String(feature.properties['linewidth']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['ltscale'] !== null ? autolinker.link(String(feature.properties['ltscale']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['visible'] !== null ? autolinker.link(String(feature.properties['visible']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['width'] !== null ? autolinker.link(String(feature.properties['width']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['thickness'] !== null ? autolinker.link(String(feature.properties['thickness']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['ext'] !== null ? autolinker.link(String(feature.properties['ext']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                </table>';
-            var content = removeEmptyRowsFromPopupContent(popupContent, feature);
-			layer.on('popupopen', function(e) {
-				addClassToPopupIfMedia(content, e.popup);
-			});
-			layer.bindPopup(content, { maxHeight: 400 });
+            var ha = (turf.area(feature) / 10000).toFixed(2);
+            var popupContent = '<div style="padding:10px 14px;">' +
+                '<div style="font-size:10px;text-transform:uppercase;letter-spacing:.06em;color:#A8864E;font-weight:600;margin-bottom:4px;">Clasificación urbanística</div>' +
+                '<div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;">' +
+                '<span style="display:inline-block;width:14px;height:14px;min-width:14px;background:rgba(180,120,220,0.75);border:2px solid rgba(130,70,180,1.0);border-radius:2px;"></span>' +
+                '<span style="font-size:14px;font-weight:400;color:#1A1A1A;">Zona industrial</span>' +
+                '</div>' +
+                '<div style="font-size:12px;color:#5A5250;"><b>Superficie:</b> ' + ha + ' ha</div>' +
+                '</div>';
+            layer.bindPopup(popupContent, { maxHeight: 400 });
         }
 
         function style_zindustrial_poligon_simple_8_0() {
             return {
                 pane: 'pane_zindustrial_poligon_simple_8',
                 opacity: 1,
-                color: 'rgba(35,35,35,1.0)',
+                color: 'rgba(130,70,180,1.0)',
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
-                weight: 1.0, 
+                weight: 1.5,
                 fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(152,125,183,1.0)',
+                fillOpacity: 0.75,
+                fillColor: 'rgba(180,120,220,0.75)',
                 interactive: true,
             }
         }
@@ -1013,84 +812,30 @@
         bounds_group.addLayer(layer_zindustrial_poligon_simple_8);
         map.addLayer(layer_zindustrial_poligon_simple_8);
         function pop_zverde_poligon_simple_9(feature, layer) {
-            var popupContent = '<table>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['fid'] !== null ? autolinker.link(String(feature.properties['fid']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['handle'] !== null ? autolinker.link(String(feature.properties['handle']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['block'] !== null ? autolinker.link(String(feature.properties['block']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['etype'] !== null ? autolinker.link(String(feature.properties['etype']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['space'] !== null ? autolinker.link(String(feature.properties['space']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['layer'] !== null ? autolinker.link(String(feature.properties['layer']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['olinetype'] !== null ? autolinker.link(String(feature.properties['olinetype']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['linetype'] !== null ? autolinker.link(String(feature.properties['linetype']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['color'] !== null ? autolinker.link(String(feature.properties['color']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['ocolor'] !== null ? autolinker.link(String(feature.properties['ocolor']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['color24'] !== null ? autolinker.link(String(feature.properties['color24']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['transparency'] !== null ? autolinker.link(String(feature.properties['transparency']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['lweight'] !== null ? autolinker.link(String(feature.properties['lweight']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['linewidth'] !== null ? autolinker.link(String(feature.properties['linewidth']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['ltscale'] !== null ? autolinker.link(String(feature.properties['ltscale']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['visible'] !== null ? autolinker.link(String(feature.properties['visible']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['width'] !== null ? autolinker.link(String(feature.properties['width']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['thickness'] !== null ? autolinker.link(String(feature.properties['thickness']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['ext'] !== null ? autolinker.link(String(feature.properties['ext']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                </table>';
-            var content = removeEmptyRowsFromPopupContent(popupContent, feature);
-			layer.on('popupopen', function(e) {
-				addClassToPopupIfMedia(content, e.popup);
-			});
-			layer.bindPopup(content, { maxHeight: 400 });
+            var ha = (turf.area(feature) / 10000).toFixed(2);
+            var popupContent = '<div style="padding:10px 14px;">' +
+                '<div style="font-size:10px;text-transform:uppercase;letter-spacing:.06em;color:#A8864E;font-weight:600;margin-bottom:4px;">Clasificación urbanística</div>' +
+                '<div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;">' +
+                '<span style="display:inline-block;width:14px;height:14px;min-width:14px;background:rgba(34,139,34,0.75);border:2px solid rgba(20,100,20,1.0);border-radius:2px;"></span>' +
+                '<span style="font-size:14px;font-weight:400;color:#1A1A1A;">Zona verde</span>' +
+                '</div>' +
+                '<div style="font-size:12px;color:#5A5250;"><b>Superficie:</b> ' + ha + ' ha</div>' +
+                '</div>';
+            layer.bindPopup(popupContent, { maxHeight: 400 });
         }
 
         function style_zverde_poligon_simple_9_0() {
             return {
                 pane: 'pane_zverde_poligon_simple_9',
                 opacity: 1,
-                color: 'rgba(35,35,35,1.0)',
+                color: 'rgba(20,100,20,1.0)',
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
-                weight: 1.0, 
+                weight: 1.5,
                 fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(183,72,75,1.0)',
+                fillOpacity: 0.75,
+                fillColor: 'rgba(34,139,34,0.75)',
                 interactive: true,
             }
         }
@@ -1109,84 +854,30 @@
         bounds_group.addLayer(layer_zverde_poligon_simple_9);
         map.addLayer(layer_zverde_poligon_simple_9);
         function pop_zer_poligon_simple_10(feature, layer) {
-            var popupContent = '<table>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['fid'] !== null ? autolinker.link(String(feature.properties['fid']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['handle'] !== null ? autolinker.link(String(feature.properties['handle']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['block'] !== null ? autolinker.link(String(feature.properties['block']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['etype'] !== null ? autolinker.link(String(feature.properties['etype']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['space'] !== null ? autolinker.link(String(feature.properties['space']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['layer'] !== null ? autolinker.link(String(feature.properties['layer']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['olinetype'] !== null ? autolinker.link(String(feature.properties['olinetype']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['linetype'] !== null ? autolinker.link(String(feature.properties['linetype']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['color'] !== null ? autolinker.link(String(feature.properties['color']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['ocolor'] !== null ? autolinker.link(String(feature.properties['ocolor']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['color24'] !== null ? autolinker.link(String(feature.properties['color24']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['transparency'] !== null ? autolinker.link(String(feature.properties['transparency']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['lweight'] !== null ? autolinker.link(String(feature.properties['lweight']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['linewidth'] !== null ? autolinker.link(String(feature.properties['linewidth']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['ltscale'] !== null ? autolinker.link(String(feature.properties['ltscale']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['visible'] !== null ? autolinker.link(String(feature.properties['visible']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['width'] !== null ? autolinker.link(String(feature.properties['width']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['thickness'] !== null ? autolinker.link(String(feature.properties['thickness']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['ext'] !== null ? autolinker.link(String(feature.properties['ext']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                </table>';
-            var content = removeEmptyRowsFromPopupContent(popupContent, feature);
-			layer.on('popupopen', function(e) {
-				addClassToPopupIfMedia(content, e.popup);
-			});
-			layer.bindPopup(content, { maxHeight: 400 });
+            var ha = (turf.area(feature) / 10000).toFixed(2);
+            var popupContent = '<div style="padding:10px 14px;">' +
+                '<div style="font-size:10px;text-transform:uppercase;letter-spacing:.06em;color:#A8864E;font-weight:600;margin-bottom:4px;">Clasificación urbanística</div>' +
+                '<div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;">' +
+                '<span style="display:inline-block;width:14px;height:14px;min-width:14px;background:rgba(153,204,153,0.75);border:2px solid rgba(100,160,100,1.0);border-radius:2px;"></span>' +
+                '<span style="font-size:14px;font-weight:400;color:#1A1A1A;">Zona de energías renovables</span>' +
+                '</div>' +
+                '<div style="font-size:12px;color:#5A5250;"><b>Superficie:</b> ' + ha + ' ha</div>' +
+                '</div>';
+            layer.bindPopup(popupContent, { maxHeight: 400 });
         }
 
         function style_zer_poligon_simple_10_0() {
             return {
                 pane: 'pane_zer_poligon_simple_10',
                 opacity: 1,
-                color: 'rgba(35,35,35,1.0)',
+                color: 'rgba(100,160,100,1.0)',
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
-                weight: 1.0, 
+                weight: 1.5,
                 fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(232,113,141,1.0)',
+                fillOpacity: 0.75,
+                fillColor: 'rgba(153,204,153,0.75)',
                 interactive: true,
             }
         }
@@ -1232,14 +923,14 @@
             return {
                 pane: 'pane_Parceles_11',
                 opacity: 1,
-                color: 'rgba(0,0,0,0.5)',
+                color: 'rgba(100,80,40,0.6)',
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
-                weight: 1.0, 
+                weight: 1.0,
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(255,255,255,0.5)',
+                fillColor: 'rgba(255,248,236,0.25)',
                 interactive: true,
             }
         }
@@ -1256,24 +947,23 @@
             style: style_Parceles_11_0,
         });
         bounds_group.addLayer(layer_Parceles_11);
-        map.addLayer(layer_Parceles_11);
         function pop_Parceles_5(feature, layer) {
             var popupContent = '<table>\
                     <tr><th scope="row">Núm. parcela</th>\
                     <td>' + (feature.properties['Nombre_parcela'] !== null ? autolinker.link(String(feature.properties['Nombre_parcela']).replace(/'/g, '\'').toLocaleString()) : '—') + '</td></tr>\
                     <tr><th scope="row">Superficie (m²)</th>\
                     <td>' + (feature.properties['area_m2'] !== null ? autolinker.link(String(feature.properties['area_m2']).replace(/'/g, '\'').toLocaleString()) : '—') + '</td></tr>\
-                    <tr><td colspan="2"><strong>Propietari: </strong>' + (feature.properties['Propietario'] !== null ? autolinker.link(String(feature.properties['Propietario']).replace(/'/g, '\'').toLocaleString()) : '—') + '</td></tr>\
+                    <tr><td colspan="2"><strong>Propietario: </strong>' + (feature.properties['Propietario'] !== null ? autolinker.link(String(feature.properties['Propietario']).replace(/'/g, '\'').toLocaleString()) : '—') + '</td></tr>\
                     <tr><td colspan="2"><strong>Valor (€): </strong>' + (feature.properties['Valor (€)'] !== null ? autolinker.link(String(feature.properties['Valor (€)']).replace(/'/g, '\'').toLocaleString()) : '—') + '</td></tr>\
                 </table>';
             var content = removeEmptyRowsFromPopupContent(popupContent, feature);
             layer.on('popupopen', function(e) { addClassToPopupIfMedia(content, e.popup); });
             layer.bindPopup(content, { maxHeight: 400 });
             layer.on('mouseover', function() { layer.setStyle({ fillColor: 'rgba(200,169,110,0.35)', fillOpacity: 1, weight: 2, color: '#A8864E' }); });
-            layer.on('mouseout', function() { layer.setStyle({ fillColor: 'rgba(255,255,255,0.5)', fillOpacity: 1, weight: 1, color: 'rgba(0,0,0,0.5)' }); });
+            layer.on('mouseout', function() { layer.setStyle({ fillColor: 'rgba(255,248,236,0.25)', fillOpacity: 1, weight: 1, color: 'rgba(100,80,40,0.6)' }); });
         }
         function style_Parceles_5_0() {
-            return { pane: 'pane_Parceles_5', opacity: 1, color: 'rgba(0,0,0,0.5)', dashArray: '', lineCap: 'butt', lineJoin: 'miter', weight: 1.0, fill: true, fillOpacity: 1, fillColor: 'rgba(255,255,255,0.5)', interactive: true }
+            return { pane: 'pane_Parceles_5', opacity: 1, color: 'rgba(100,80,40,0.6)', dashArray: '', lineCap: 'butt', lineJoin: 'miter', weight: 1.0, fill: true, fillOpacity: 1, fillColor: 'rgba(255,248,236,0.25)', interactive: true }
         }
         map.createPane('pane_Parceles_5');
         map.getPane('pane_Parceles_5').style.zIndex = 412;
@@ -1284,25 +974,21 @@
             onEachFeature: pop_Parceles_5, style: style_Parceles_5_0,
         });
         bounds_group.addLayer(layer_Parceles_5);
-        map.addLayer(layer_Parceles_5);
+        var layer_Parceles_Vintem = L.layerGroup([layer_Parceles_11, layer_Parceles_5]);
+        map.addLayer(layer_Parceles_Vintem);
         var overlaysTree = [
-        {label: '<b>Parceles Bugarrech</b>',  selectAllCheckbox: true, children: [
-            {label: '<img src="legend/Parceles_11.png" /> Parceles Bugarrech', layer: layer_Parceles_11},]},
-        {label: '<b>Parcelas Vintem</b>',  selectAllCheckbox: true, children: [
-            {label: '<img src="legend/Parceles_5.png" /> Parcelas Vintem', layer: layer_Parceles_5},]},
-        {label: '<b>Otros</b>',  selectAllCheckbox: true, children: [
-            {label: '<img src="legend/zer_poligon_simple_10.png" /> zer_poligon_simple', layer: layer_zer_poligon_simple_10},
-            {label: '<img src="legend/zverde_poligon_simple_9.png" /> zverde_poligon_simple', layer: layer_zverde_poligon_simple_9},
-            {label: '<img src="legend/zindustrial_poligon_simple_8.png" /> zindustrial_poligon_simple', layer: layer_zindustrial_poligon_simple_8},
-            {label: '<img src="legend/zequipaments_poligon_simple_7.png" /> zequipaments_poligon_simple', layer: layer_zequipaments_poligon_simple_7},
-            {label: '<img src="legend/zaparcaments_poligon_simple_6.png" /> zaparcaments_poligon_simple', layer: layer_zaparcaments_poligon_simple_6},
-            {label: '<img src="legend/zccc_poligon_simple_5.png" /> zccc_poligon_simple', layer: layer_zccc_poligon_simple_5},
-            {label: 'construccions — cad<br /><table><tr><td style="text-align: center;"><img src="legend/construccionscad_4_ACERAS0.png" /></td><td>ACERAS</td></tr><tr><td style="text-align: center;"><img src="legend/construccionscad_4_ARBOLADO1.png" /></td><td>ARBOLADO</td></tr><tr><td style="text-align: center;"><img src="legend/construccionscad_4_CALLES2.png" /></td><td>CALLES</td></tr><tr><td style="text-align: center;"><img src="legend/construccionscad_4_CALLESPREVISION3.png" /></td><td>CALLES_PREVISION</td></tr><tr><td style="text-align: center;"><img src="legend/construccionscad_4_PLANTA4.png" /></td><td>PLANTA</td></tr></table>', layer: layer_construccionscad_4},
-            {label: '<img src="legend/construccions_3.png" /> construccions', layer: layer_construccions_3},
-            {label: '<img src="legend/construccions_externes_2.png" /> construccions_externes', layer: layer_construccions_externes_2},
-            {label: '<img src="legend/construccionsexteriorparcelari_1.png" /> construccions — exteriorparcelari', layer: layer_construccionsexteriorparcelari_1},]},
-        {label: '<b>Mapas de fondo</b>',  selectAllCheckbox: true, children: [
-            {label: "Google Satellite Hybrid", layer: layer_GoogleSatelliteHybrid_0},]},]
+        {label: '<b>Polígono Vintem</b>', selectAllCheckbox: true, children: [
+            {label: 'Parcelas', layer: layer_Parceles_Vintem},
+        ]},
+        {label: '<b>Parcelas Polígono Bugarrech</b>', selectAllCheckbox: true, children: [
+            {label: '<span style="display:inline-block;width:14px;height:14px;background:rgba(153,204,153,0.75);border:2px solid rgba(100,160,100,1.0);border-radius:2px;vertical-align:middle;margin-right:4px;"></span> Zona de energías renovables', layer: layer_zer_poligon_simple_10},
+            {label: '<span style="display:inline-block;width:14px;height:14px;background:rgba(34,139,34,0.75);border:2px solid rgba(20,100,20,1.0);border-radius:2px;vertical-align:middle;margin-right:4px;"></span> Zona verde', layer: layer_zverde_poligon_simple_9},
+            {label: '<span style="display:inline-block;width:14px;height:14px;background:rgba(180,120,220,0.75);border:2px solid rgba(130,70,180,1.0);border-radius:2px;vertical-align:middle;margin-right:4px;"></span> Zona industrial', layer: layer_zindustrial_poligon_simple_8},
+            {label: '<span style="display:inline-block;width:14px;height:14px;background:rgba(100,149,237,0.75);border:2px solid rgba(60,100,190,1.0);border-radius:2px;vertical-align:middle;margin-right:4px;"></span> Equipamientos', layer: layer_zequipaments_poligon_simple_7},
+            {label: '<span style="display:inline-block;width:14px;height:14px;background:rgba(255,255,0,0.75);border:2px solid rgba(180,180,0,1.0);border-radius:2px;vertical-align:middle;margin-right:4px;"></span> Aparcamientos', layer: layer_zaparcaments_poligon_simple_6},
+            {label: '<span style="display:inline-block;width:14px;height:14px;background:rgba(139,69,19,0.75);border:2px solid rgba(100,50,10,1.0);border-radius:2px;vertical-align:middle;margin-right:4px;"></span> Zona "estación de biomasa"', layer: layer_zccc_poligon_simple_5},]},
+        {label: '<b>Mapas de fondo</b>', selectAllCheckbox: true, children: [
+            {label: "Google Satélite", layer: layer_GoogleSatelliteHybrid_0},]},]
         var lay = L.control.layers.tree(null, overlaysTree,{
             //namedToggle: true,
             //selectorBack: false,
@@ -1320,7 +1006,7 @@
                 feature: layer.feature,
                 variables: {}
             };
-            layer.bindTooltip((layer.feature.properties['Nombre_parcela'] !== null?String('<div style="color: #323232; font-size: 8pt; font-family: \'Arial Black\', sans-serif;">' + layer.feature.properties['Nombre_parcela']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_Parceles_11'});
+            layer.bindTooltip((layer.feature.properties['Nombre_parcela'] !== null?String('<div style="color: #FFFFFF; font-size: 8pt; font-family: Arial, sans-serif; font-weight: 400;">' + layer.feature.properties['Nombre_parcela']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_Parceles_11'});
             labels.push(layer);
             totalMarkers += 1;
               layer.added = true;
@@ -1340,3 +1026,4 @@
         </script>        
     </body>
 </html>
+
