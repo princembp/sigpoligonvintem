@@ -645,14 +645,10 @@
         map.addLayer(layer_construccionscad_4);
         function pop_zccc_poligon_simple_5(feature, layer) {
             var ha = (turf.area(feature) / 10000).toFixed(2);
-            var popupContent = '<div style="padding:10px 14px;">' +
-                '<div style="font-size:10px;text-transform:uppercase;letter-spacing:.06em;color:#A8864E;font-weight:600;margin-bottom:4px;">Clasificación urbanística</div>' +
-                '<div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;">' +
-                '<span style="display:inline-block;width:14px;height:14px;min-width:14px;background:rgba(139,69,19,0.75);border:2px solid rgba(100,50,10,1.0);border-radius:2px;"></span>' +
-                '<span style="font-size:14px;font-weight:400;color:#1A1A1A;">Zona &ldquo;estación de biomasa&rdquo;</span>' +
-                '</div>' +
-                '<div style="font-size:12px;color:#5A5250;"><b>Superficie:</b> ' + ha + ' ha</div>' +
-                '</div>';
+            var popupContent = '<table>' +
+                '<tr><th scope="row">Clasificación</th><td><span style=\"display:inline-block;width:10px;height:10px;background:rgba(139,69,19,0.75);border:1.5px solid rgba(100,50,10,1.0);border-radius:2px;margin-right:5px;vertical-align:middle;\"></span>Zona &ldquo;estación de biomasa&rdquo;</td></tr>' +
+                '<tr><th scope="row">Superficie</th><td>' + ha + ' ha</td></tr>' +
+                '</table>';
             layer.bindPopup(popupContent, { maxHeight: 400 });
         }
 
@@ -687,14 +683,10 @@
         map.addLayer(layer_zccc_poligon_simple_5);
         function pop_zaparcaments_poligon_simple_6(feature, layer) {
             var ha = (turf.area(feature) / 10000).toFixed(2);
-            var popupContent = '<div style="padding:10px 14px;">' +
-                '<div style="font-size:10px;text-transform:uppercase;letter-spacing:.06em;color:#A8864E;font-weight:600;margin-bottom:4px;">Clasificación urbanística</div>' +
-                '<div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;">' +
-                '<span style="display:inline-block;width:14px;height:14px;min-width:14px;background:rgba(255,255,0,0.75);border:2px solid rgba(180,180,0,1.0);border-radius:2px;"></span>' +
-                '<span style="font-size:14px;font-weight:400;color:#1A1A1A;">Aparcamientos</span>' +
-                '</div>' +
-                '<div style="font-size:12px;color:#5A5250;"><b>Superficie:</b> ' + ha + ' ha</div>' +
-                '</div>';
+            var popupContent = '<table>' +
+                '<tr><th scope="row">Clasificación</th><td><span style=\"display:inline-block;width:10px;height:10px;background:rgba(255,255,0,0.75);border:1.5px solid rgba(180,180,0,1.0);border-radius:2px;margin-right:5px;vertical-align:middle;\"></span>Aparcamientos</td></tr>' +
+                '<tr><th scope="row">Superficie</th><td>' + ha + ' ha</td></tr>' +
+                '</table>';
             layer.bindPopup(popupContent, { maxHeight: 400 });
         }
 
@@ -729,14 +721,10 @@
         map.addLayer(layer_zaparcaments_poligon_simple_6);
         function pop_zequipaments_poligon_simple_7(feature, layer) {
             var ha = (turf.area(feature) / 10000).toFixed(2);
-            var popupContent = '<div style="padding:10px 14px;">' +
-                '<div style="font-size:10px;text-transform:uppercase;letter-spacing:.06em;color:#A8864E;font-weight:600;margin-bottom:4px;">Clasificación urbanística</div>' +
-                '<div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;">' +
-                '<span style="display:inline-block;width:14px;height:14px;min-width:14px;background:rgba(100,149,237,0.75);border:2px solid rgba(60,100,190,1.0);border-radius:2px;"></span>' +
-                '<span style="font-size:14px;font-weight:400;color:#1A1A1A;">Equipamientos</span>' +
-                '</div>' +
-                '<div style="font-size:12px;color:#5A5250;"><b>Superficie:</b> ' + ha + ' ha</div>' +
-                '</div>';
+            var popupContent = '<table>' +
+                '<tr><th scope="row">Clasificación</th><td><span style=\"display:inline-block;width:10px;height:10px;background:rgba(100,149,237,0.75);border:1.5px solid rgba(60,100,190,1.0);border-radius:2px;margin-right:5px;vertical-align:middle;\"></span>Equipamientos</td></tr>' +
+                '<tr><th scope="row">Superficie</th><td>' + ha + ' ha</td></tr>' +
+                '</table>';
             layer.bindPopup(popupContent, { maxHeight: 400 });
         }
 
@@ -771,14 +759,10 @@
         map.addLayer(layer_zequipaments_poligon_simple_7);
         function pop_zindustrial_poligon_simple_8(feature, layer) {
             var ha = (turf.area(feature) / 10000).toFixed(2);
-            var popupContent = '<div style="padding:10px 14px;">' +
-                '<div style="font-size:10px;text-transform:uppercase;letter-spacing:.06em;color:#A8864E;font-weight:600;margin-bottom:4px;">Clasificación urbanística</div>' +
-                '<div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;">' +
-                '<span style="display:inline-block;width:14px;height:14px;min-width:14px;background:rgba(180,120,220,0.75);border:2px solid rgba(130,70,180,1.0);border-radius:2px;"></span>' +
-                '<span style="font-size:14px;font-weight:400;color:#1A1A1A;">Zona industrial</span>' +
-                '</div>' +
-                '<div style="font-size:12px;color:#5A5250;"><b>Superficie:</b> ' + ha + ' ha</div>' +
-                '</div>';
+            var popupContent = '<table>' +
+                '<tr><th scope="row">Clasificación</th><td><span style=\"display:inline-block;width:10px;height:10px;background:rgba(180,120,220,0.75);border:1.5px solid rgba(130,70,180,1.0);border-radius:2px;margin-right:5px;vertical-align:middle;\"></span>Zona industrial</td></tr>' +
+                '<tr><th scope="row">Superficie</th><td>' + ha + ' ha</td></tr>' +
+                '</table>';
             layer.bindPopup(popupContent, { maxHeight: 400 });
         }
 
@@ -813,14 +797,10 @@
         map.addLayer(layer_zindustrial_poligon_simple_8);
         function pop_zverde_poligon_simple_9(feature, layer) {
             var ha = (turf.area(feature) / 10000).toFixed(2);
-            var popupContent = '<div style="padding:10px 14px;">' +
-                '<div style="font-size:10px;text-transform:uppercase;letter-spacing:.06em;color:#A8864E;font-weight:600;margin-bottom:4px;">Clasificación urbanística</div>' +
-                '<div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;">' +
-                '<span style="display:inline-block;width:14px;height:14px;min-width:14px;background:rgba(34,139,34,0.75);border:2px solid rgba(20,100,20,1.0);border-radius:2px;"></span>' +
-                '<span style="font-size:14px;font-weight:400;color:#1A1A1A;">Zona verde</span>' +
-                '</div>' +
-                '<div style="font-size:12px;color:#5A5250;"><b>Superficie:</b> ' + ha + ' ha</div>' +
-                '</div>';
+            var popupContent = '<table>' +
+                '<tr><th scope="row">Clasificación</th><td><span style=\"display:inline-block;width:10px;height:10px;background:rgba(34,139,34,0.75);border:1.5px solid rgba(20,100,20,1.0);border-radius:2px;margin-right:5px;vertical-align:middle;\"></span>Zona verde</td></tr>' +
+                '<tr><th scope="row">Superficie</th><td>' + ha + ' ha</td></tr>' +
+                '</table>';
             layer.bindPopup(popupContent, { maxHeight: 400 });
         }
 
@@ -855,14 +835,10 @@
         map.addLayer(layer_zverde_poligon_simple_9);
         function pop_zer_poligon_simple_10(feature, layer) {
             var ha = (turf.area(feature) / 10000).toFixed(2);
-            var popupContent = '<div style="padding:10px 14px;">' +
-                '<div style="font-size:10px;text-transform:uppercase;letter-spacing:.06em;color:#A8864E;font-weight:600;margin-bottom:4px;">Clasificación urbanística</div>' +
-                '<div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;">' +
-                '<span style="display:inline-block;width:14px;height:14px;min-width:14px;background:rgba(153,204,153,0.75);border:2px solid rgba(100,160,100,1.0);border-radius:2px;"></span>' +
-                '<span style="font-size:14px;font-weight:400;color:#1A1A1A;">Zona de energías renovables</span>' +
-                '</div>' +
-                '<div style="font-size:12px;color:#5A5250;"><b>Superficie:</b> ' + ha + ' ha</div>' +
-                '</div>';
+            var popupContent = '<table>' +
+                '<tr><th scope="row">Clasificación</th><td><span style=\"display:inline-block;width:10px;height:10px;background:rgba(153,204,153,0.75);border:1.5px solid rgba(100,160,100,1.0);border-radius:2px;margin-right:5px;vertical-align:middle;\"></span>Zona de energías renovables</td></tr>' +
+                '<tr><th scope="row">Superficie</th><td>' + ha + ' ha</td></tr>' +
+                '</table>';
             layer.bindPopup(popupContent, { maxHeight: 400 });
         }
 
